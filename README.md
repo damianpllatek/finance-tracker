@@ -1,3 +1,3 @@
 # README
 
-This is the finance tracker application created in Ruby on Rails.
+This is the finance tracker application bulit with Ruby on Rails 6.
