@@ -1,5 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-.navbar-brand {
-  font-size: 3rem;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
