@@ -11,10 +11,9 @@ class User < ApplicationRecord
   def stock_already_tracked?(ticker_symbol)
     stock = Stock.check_db(ticker_symbol)
     return false unless stock
-
-    stocks.where(id: stock.id).exists?
+    stocks.where(id: stock.id).exists?    
   end
-
+  
   def under_stock_limit?
     stocks.count < 10
   end
@@ -49,5 +48,13 @@ class User < ApplicationRecord
 
   def self.matches(field_name, param)
     where("#{field_name} like ?", "%#{param}%")
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  def not_friends_with?(id_of_friend)
+    !self.friends.where(id: id_of_friend).exists?
   end
 end
